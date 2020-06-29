@@ -29,5 +29,5 @@ class SmsApi:
 
         :return:
         """
-        message = f"Hello Kelvin,\nUse this activation code: {code} to verify your account, keep it secret."
+        message = f"Hello Keezy,\nUse this activation code: {code} to verify your account, keep it secret."
         return self._send_sms(recipient, message)
