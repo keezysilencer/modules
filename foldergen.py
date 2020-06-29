@@ -24,6 +24,5 @@ class Maker:
         print("+++++++++++++ Done ++++++++++!\n" + str(self.num) + ' FILES CREATED!')
         return None
 
-
-#folder = Maker("20")
-#folder.create()
+# folder = Maker("20")
+# folder.create()
