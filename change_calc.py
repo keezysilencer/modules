@@ -17,7 +17,6 @@ for den in denominations.items():
         break
     else:
         pass
-        #sort denominations in descending order
-        #do ans% denominations (finding the modulus)
-        #There you go bingo!!
-        
+        # sort denominations in descending order
+        # do ans% denominations (finding the modulus)
+        # There you go bingo!!

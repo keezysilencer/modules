@@ -1,4 +1,5 @@
 import os
+
 __author__ = 'Keezy Silencer'
 
 """
@@ -21,15 +22,15 @@ class Rename:
                 print("Renaming: " + file_name + '  ==> ' + root + ext)
                 os.rename(os.path.join(self.path, file_name), os.path.join(self.path, root + self.to_ext))
 
-# Imperative programming
-# def rename_by_ext(to_ext,path):
-#     if to_ext[0]!='.':
-#         to_ext = '.'+to_ext
-#     print("Renaming files in ",path)
-#     for file_name in os.listdir(path):
-#         root,ext =os.path.splitext(file_name)
-#         print("Renaming :"+file_name+' to '+root+ext)
-#         os.rename(os.path.join(path,file_name),os.path.join(path,root+to_ext))
-#
-# rename_by_ext('.mp4','New Folder')
 
+# Imperative programming
+def rename_by_ext(to_ext, path):
+    if to_ext[0] != '.':
+        to_ext = '.' + to_ext
+    print("Renaming files in ", path)
+    for file_name in os.listdir(path):
+        root, ext = os.path.splitext(file_name)
+        print("Renaming :" + file_name + ' to ' + root + ext)
+        os.rename(os.path.join(path, file_name), os.path.join(path, root + to_ext))
+
+# rename_by_ext('.mp4', 'New Folder')

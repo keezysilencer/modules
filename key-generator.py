@@ -1,5 +1,4 @@
 import random
-import string
 
 
 class Key:
@@ -53,4 +52,3 @@ class Key:
 
 k = Key(key='')
 print(k)
-

@@ -1,9 +1,12 @@
 import random
 import string
-import secrets
 
 
 class Key:
+    """
+    Generates and verifies a unique key
+    """
+
     def __init__(self):
         self.key = ''
         self.generate_key()
@@ -42,5 +45,3 @@ class Key:
 
     def __str__(self):
         return self.generate_key()
-k = Key()
-print(k.verify())

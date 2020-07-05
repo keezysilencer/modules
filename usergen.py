@@ -1,4 +1,6 @@
-import string, secrets, xlrd
+import secrets
+import string
+import xlrd
 
 """
 Generates random password of 32 chars long
@@ -6,44 +8,54 @@ and maps user to a password and returns a dictionary.
 """
 
 
-class UserGen():
+class UserGen:
+    pack_id = []
+    email = []
+
     def __init__(self, path):
         self.path = path
-        self.pack = []
-
-
-#    Reads file from an excel file and returns a list of usernames
 
     def read(self):
+        """
+         Reads file from an excel file and returns a list of username
+        """
         book = xlrd.open_workbook(self.path)
         sheet = book.sheet_by_index(0)
         columns = sheet.ncols
         row = sheet.nrows
         print("You have " + str(row) + " rows" + ' and ' + str(columns) + ' column' + ' in ' + sheet.name)
-        ID,last,first = [],[],[]
-        for r in range(1, row):
-            ID.append(sheet.cell(r, 0).value)
-            first.append(sheet.cell(r, 1).value)
-            last.append(sheet.cell(r, 2).value)
-            self.pack_id = ID
+        last, first = [], [],
+        for data in range(1, row):
+            first.append(sheet.cell(data, 1).value)
+            last.append(sheet.cell(data, 2).value)
+            self.pack_id.append(sheet.cell(data, 0).value)
         return self.pack_id
-    #Find list of emails on column 5 (E)
+
     def email_list(self):
+        """
+        Find list of emails on column 5 (E)
+        """
         book = xlrd.open_workbook(self.path)
         sheet = book.sheet_by_index(0)
         row = sheet.nrows
         self.email = []
         for r in range(1, row):
-            self.email.append(sheet.cell(r,4).value)
+            self.email.append(sheet.cell(r, 4).value)
         return self.email
-    # returns a string of 32 chars of random letters and digits
-    def gen(self):
+
+    @staticmethod
+    def gen():
+        """
+        returns a string of 32 chars of random letters and digits
+        """
         words = string.ascii_letters + string.digits
         text = ''.join(secrets.choice(words) for _ in range(5))
         return text
 
-    # remove duplicates from generated file
     def collect(self):
+        """
+        remove duplicates from generated file
+        """
         collection = []
         for _ in range(len(self.pack_id)):
             word = self.gen()
